@@ -1,3 +1,8 @@
 mongoengine
 pymongo
 python-dotenv
+
+fastapi
+python-multipart
+uvicorn
+blinker

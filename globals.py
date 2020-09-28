@@ -18,4 +18,17 @@ MONGO_USER = os.getenv('MONGO_USER')
 MONGO_PASSWORD = os.getenv('MONGO_PASSWORD')
 
 # CONTAINER NAME
-RECEIVE_TOPIC = 'EASY_OCR'
+RECEIVE_TOPIC = 'FACE_RECOG'
+
+CONNECTED =  'CONNECTED'
+DISCONNECTED = 'DISCONNECTED'
+
+
+embeddings = []
+
+def add_to_embeddings(username, encoding):
+    interm = {
+        "name": username,
+        "encoding": encoding
+    }
+    embeddings.append(interm)
