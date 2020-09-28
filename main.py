@@ -1,4 +1,3 @@
-from typing_extensions import final
 from db_models.models.user_model import UserModel
 from db_models.models.cache_model import Cache
 import json
