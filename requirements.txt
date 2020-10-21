@@ -2,3 +2,5 @@ mongoengine
 pymongo
 python-dotenv
 requests
+kafka-python
+pyfiglet

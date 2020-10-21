@@ -1,23 +1,16 @@
 version: '3'
 services:
-    face-recog-inference:
-        build: .
-        container_name: "face_recognition"
-        image: ghcr.io/jainal09/face_recog:gpu
-        command: uvicorn main:app --reload --host 0.0.0.0
-        ports:
-            - 7000:8000
-        links:
-            - mongodb
-        depends_on:
-            - mongodb
+#    face_recog_server:
+#        container_name: "face_recognition"
+#        image: ghcr.io/semantic-search/face_recog_gpu_api:latest
+#        ports:
+#            - 7000:7000
+#        env_file:
+#            - .env
 
-    consumer:
-        # image: jainal09/ingesting_common_cv:latest
-        container_name : consumer
-        build:
-            context: .
-            dockerfile: Dockerfile
-        command: python3 main.py
+    face_recog_indexer:
+        build: .
+        #image: ghcr.io/semantic-search/face_recognition_container:latest
+        container_name : "kafka"
         env_file:
-            - .env_file
+            - .env
