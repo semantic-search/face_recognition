@@ -1,4 +1,4 @@
-FROM akshay090/face_recognition:latest
+FROM python:3.7
 
 COPY ./requirements.txt /app/requirements.txt
 
