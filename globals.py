@@ -24,6 +24,7 @@ CONNECTED =  'CONNECTED'
 DISCONNECTED = 'DISCONNECTED'
 
 
+FACE_RECOG_SERVER = os.getenv('FACE_RECOG_SERVER')
 embeddings = []
 
 def add_to_embeddings(username, encoding):
