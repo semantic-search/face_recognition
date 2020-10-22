@@ -19,7 +19,7 @@ def recog_face(image):
         ('file', open(image, 'rb'))
     ]
     response = requests.request("POST", url, files=files)
-    person = str(response.text)
+    person = response.json()
     print("PERSON", person)
     if person == "false":
         return False
@@ -67,6 +67,8 @@ if __name__ == "__main__":
                         face_model_object.document = db_object
                         face_model_object.person = face
                         face_model_object.save()
+                        print("##############SAVING PERSON FILE##############")
+                        print(face_model_object.id)
                         faces.add(face)
                 db_object.faces = list(faces)
                 db_object.save()
@@ -89,6 +91,7 @@ if __name__ == "__main__":
                     face_model_object.save()
                     db_object.faces = [face]
                     face_model_object.save()
+                    print("##############SAVING PERSON FILE##############")
                     db_object.save()
                 print(".....................FINISHED PROCESSING FILE.....................")
         except Exception as e:
