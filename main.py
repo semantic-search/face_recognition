@@ -48,7 +48,7 @@ if __name__ == "__main__":
                 """document"""
                 print('in doc type')
                 images_array = []
-                faces = []
+                faces = set()
                 for cache_obj in db_object.files:
                     pdf_image = str(uuid.uuid4()) + ".jpg"
                     with open(pdf_image, 'wb') as file_to_save:
@@ -67,8 +67,8 @@ if __name__ == "__main__":
                         face_model_object.document = db_object
                         face_model_object.person = face
                         face_model_object.save()
-                        faces.append(face)
-                db_object.faces = faces
+                        faces.add(face)
+                db_object.faces = list(faces)
                 db_object.save()
                 print(".....................FINISHED PROCESSING FILE.....................")
             else:
